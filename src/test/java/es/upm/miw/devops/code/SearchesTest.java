@@ -24,6 +24,12 @@ class SearchesTest {
                 .containsExactly("López", "Torres");
     }
 
+    @Test
+    void testFindBillableUsers() {
+        assertThat(new Searches().findBillableUsers().toList())
+                .containsExactly("Oscar Fernandez", "Ana Blanco");
+    }
+
     void testFindUserIdByAnyProperFraction() {
     }
 
