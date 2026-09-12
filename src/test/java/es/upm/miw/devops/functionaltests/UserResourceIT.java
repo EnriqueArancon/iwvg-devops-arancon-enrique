@@ -34,4 +34,18 @@ class UserResourceIT {
                 .exchange()
                 .expectStatus().is5xxServerError();
     }
+
+    @Test
+    void testSearchBillableUsers() {
+        webTestClient.get()
+                .uri(uriBuilder -> uriBuilder
+                        .path("/user/search")
+                        .queryParam("q", "billable:true")
+                        .build())
+                .exchange()
+                .expectStatus().isOk()
+                .expectBodyList(String.class)
+                .hasSize(2)
+                .contains("Oscar Fernandez", "Ana Blanco");
+    }
 }
