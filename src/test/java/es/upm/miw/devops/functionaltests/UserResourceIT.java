@@ -44,8 +44,9 @@ class UserResourceIT {
                         .build())
                 .exchange()
                 .expectStatus().isOk()
-                .expectBodyList(String.class)
-                .hasSize(2)
-                .contains("Oscar Fernandez", "Ana Blanco");
+                .expectBody()
+                .jsonPath("$.length()").isEqualTo(2)
+                .jsonPath("$[0]").isEqualTo("Oscar Fernandez")
+                .jsonPath("$[1]").isEqualTo("Ana Blanco");
     }
 }
