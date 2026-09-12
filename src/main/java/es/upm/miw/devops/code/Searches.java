@@ -92,4 +92,9 @@ public class Searches {
         return null;
     }
 
+    public Stream<String> findBillableUsers() {
+        return new UsersDatabase().findAll()
+                .filter(User::isBillable)
+                .map(User::fullName);
+    }
 }

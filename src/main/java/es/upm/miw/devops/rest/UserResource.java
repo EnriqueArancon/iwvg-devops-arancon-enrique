@@ -18,4 +18,12 @@ public class UserResource {
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("User not found: " + id));
     }
+
+    @GetMapping("/search")
+    public java.util.stream.Stream<String> find(@org.springframework.web.bind.annotation.RequestParam(required = false) String q) {
+        if ("billable:true".equals(q)) {
+            return new es.upm.miw.devops.code.Searches().findBillableUsers();
+        }
+        return java.util.stream.Stream.empty();
+    }
 }
