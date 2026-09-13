@@ -41,6 +41,18 @@ class SearchesTest {
         assertThrows(IllegalArgumentException.class, () -> new Searches().deleteUser("999"));
     }
 
+    @Test
+    void testUpdateUserActive() {
+        User user = new Searches().updateUserActive("1");
+        assertThat(user.isActive()).isTrue();
+        assertThat(user.getId()).isEqualTo("1");
+    }
+
+    @Test
+    void testUpdateUserActiveNotFound() {
+        assertThrows(IllegalArgumentException.class, () -> new Searches().updateUserActive("999"));
+    }
+
     void testFindUserIdByAnyProperFraction() {
     }
 
