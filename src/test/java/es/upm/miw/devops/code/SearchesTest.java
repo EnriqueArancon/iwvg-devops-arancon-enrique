@@ -3,6 +3,7 @@ package es.upm.miw.devops.code;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class SearchesTest {
 
@@ -22,6 +23,22 @@ class SearchesTest {
     void testFindFamilyNameByFractionDenominator() {
         assertThat(new Searches().findUserFamilyNameByFractionDenominator(2).toList())
                 .containsExactly("López", "Torres");
+    }
+
+    @Test
+    void testFindBillableUsers() {
+        assertThat(new Searches().findBillableUsers().toList())
+                .containsExactly("Oscar Fernandez", "Ana Blanco");
+    }
+
+    @Test
+    void testDeleteUser() {
+        new Searches().deleteUser("1");
+    }
+
+    @Test
+    void testDeleteUserNotFound() {
+        assertThrows(IllegalArgumentException.class, () -> new Searches().deleteUser("999"));
     }
 
     void testFindUserIdByAnyProperFraction() {

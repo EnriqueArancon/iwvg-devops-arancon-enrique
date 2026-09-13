@@ -92,4 +92,16 @@ public class Searches {
         return null;
     }
 
+    public Stream<String> findBillableUsers() {
+        return new UsersDatabase().findAll()
+                .filter(User::isBillable)
+                .map(User::fullName);
+    }
+
+    public void deleteUser(String id) {
+        new UsersDatabase().findAll()
+                .filter(user -> id.equals(user.getId()))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("User not found: " + id));
+    }
 }

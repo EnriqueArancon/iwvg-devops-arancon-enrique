@@ -11,7 +11,7 @@
 
 ### Estado del código
 [![DevOps](https://github.com/EnriqueArancon/iwvg-devops-arancon-enrique/actions/workflows/continuous-integration.yml/badge.svg?branch=develop)](https://github.com/EnriqueArancon/iwvg-devops-arancon-enrique/actions/workflows/continuous-integration.yml)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=enriquearancon_iwvg-devops-arancon-enrique&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=enriquearancon_iwvg-devops-arancon-enrique)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=EnriqueArancon_iwvg-devops-arancon-enrique&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=EnriqueArancon_iwvg-devops-arancon-enrique)
 [![Render broken](https://iwvg-devops-latest.onrender.com/version-badge)](https://iwvg-devops-latest.onrender.com/swagger-ui.html)
 
 
