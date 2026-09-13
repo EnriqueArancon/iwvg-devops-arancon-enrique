@@ -65,4 +65,23 @@ class UserResourceIT {
                 .exchange()
                 .expectStatus().is5xxServerError();
     }
+
+    @Test
+    void testUpdateActive() {
+        webTestClient.put()
+                .uri("/user/1/active")
+                .exchange()
+                .expectStatus().isOk()
+                .expectBody()
+                .jsonPath("$.id").isEqualTo("1")
+                .jsonPath("$.active").isEqualTo(true);
+    }
+
+    @Test
+    void testUpdateActiveNotFound() {
+        webTestClient.put()
+                .uri("/user/999/active")
+                .exchange()
+                .expectStatus().is5xxServerError();
+    }
 }
