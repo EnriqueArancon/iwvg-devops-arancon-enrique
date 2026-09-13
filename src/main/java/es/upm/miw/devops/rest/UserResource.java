@@ -30,9 +30,6 @@ public class UserResource {
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable String id) {
-        // En una aplicación real, aquí borraríamos al usuario de la base de datos.
-        // Como el profesor solo nos ha dado un UsersDatabase falso (seeder estático),
-        // no hay método delete(). Para que pase el test, este método se queda vacío
-        // simulando que el borrado fue exitoso (devuelve estado 200 OK por defecto).
+        new es.upm.miw.devops.code.Searches().deleteUser(id);
     }
 }
