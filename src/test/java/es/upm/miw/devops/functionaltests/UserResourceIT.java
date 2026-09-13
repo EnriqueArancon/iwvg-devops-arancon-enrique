@@ -49,4 +49,20 @@ class UserResourceIT {
                 .jsonPath("$[0]").isEqualTo("Oscar Fernandez")
                 .jsonPath("$[1]").isEqualTo("Ana Blanco");
     }
+
+    @Test
+    void testDeleteUser() {
+        webTestClient.delete()
+                .uri("/user/1")
+                .exchange()
+                .expectStatus().isOk();
+    }
+
+    @Test
+    void testDeleteUserNotFound() {
+        webTestClient.delete()
+                .uri("/user/999")
+                .exchange()
+                .expectStatus().is5xxServerError();
+    }
 }
