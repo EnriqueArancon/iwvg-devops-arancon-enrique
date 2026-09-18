@@ -34,4 +34,54 @@ class UserResourceIT {
                 .exchange()
                 .expectStatus().is5xxServerError();
     }
+
+    @Test
+    void testSearchBillableUsers() {
+        webTestClient.get()
+                .uri(uriBuilder -> uriBuilder
+                        .path("/user/search")
+                        .queryParam("q", "billable:true")
+                        .build())
+                .exchange()
+                .expectStatus().isOk()
+                .expectBody()
+                .jsonPath("$.length()").isEqualTo(2)
+                .jsonPath("$[0]").isEqualTo("Oscar Fernandez")
+                .jsonPath("$[1]").isEqualTo("Ana Blanco");
+    }
+
+    @Test
+    void testDeleteUser() {
+        webTestClient.delete()
+                .uri("/user/1")
+                .exchange()
+                .expectStatus().isOk();
+    }
+
+    @Test
+    void testDeleteUserNotFound() {
+        webTestClient.delete()
+                .uri("/user/999")
+                .exchange()
+                .expectStatus().is5xxServerError();
+    }
+
+    @Test
+    void testUpdateActive() {
+        webTestClient.put()
+                .uri("/user/1/active")
+                .exchange()
+                .expectStatus().isOk()
+                .expectBody()
+                .jsonPath("$.id").isEqualTo("1")
+                .jsonPath("$.active").isEqualTo(true);
+    }
+
+    @Test
+    void testUpdateActiveNotFound() {
+        webTestClient.put()
+                .uri("/user/999/active")
+                .exchange()
+                .expectStatus().is5xxServerError();
+    }
 }
