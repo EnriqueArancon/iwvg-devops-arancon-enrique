@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/users")
@@ -15,6 +14,6 @@ public class UsersResource {
 
     @GetMapping
     public List<User> readAll() {
-        return new UsersDatabase().findAll().collect(Collectors.toList());
+        return new UsersDatabase().findAll().toList();
     }
 }
