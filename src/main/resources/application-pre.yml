@@ -1,6 +1,11 @@
 server:
   port: 8080
 
+logging:
+  level:
+    root: WARN
+    es.upm.api: INFO
+
 app:
   hosting: render
 
@@ -8,7 +13,8 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-  # Valores creados en Render -> Databases -> Database
+  # Valores creados en Render → Databases → Database → Connect
+  # actualizado
   datasource:
     driver-class-name: org.postgresql.Driver
     url: ${SPRING_DATASOURCE_URL}
