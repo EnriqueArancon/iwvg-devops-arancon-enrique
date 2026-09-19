@@ -20,6 +20,9 @@ FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
    # Copia el archivo *jar generado en el contenedor de construcción
 COPY --from=build /app/target/*.jar app.jar
+   # Define el healthcheck para que GitHub Actions sepa cuándo está listo
+HEALTHCHECK --interval=10s --timeout=5s --start-period=10s --retries=5 \
+  CMD wget -qO- http://localhost:8080/actuator/health | grep UP || exit 1
    # Define un comando para cuando se inicialice el contenedor en el host: java -jar app.jar
 CMD ["java", "-jar", "app.jar"]
 
