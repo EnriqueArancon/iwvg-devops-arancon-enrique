@@ -33,12 +33,14 @@ class SearchesTest {
 
     @Test
     void testDeleteUser() {
-        new Searches().deleteUser("1");
+        Searches searches = new Searches();
+        org.junit.jupiter.api.Assertions.assertDoesNotThrow(() -> searches.deleteUser("1"));
     }
 
     @Test
     void testDeleteUserNotFound() {
-        assertThrows(IllegalArgumentException.class, () -> new Searches().deleteUser("999"));
+        Searches searches = new Searches();
+        assertThrows(IllegalArgumentException.class, () -> searches.deleteUser("999"));
     }
 
     @Test
@@ -50,7 +52,8 @@ class SearchesTest {
 
     @Test
     void testUpdateUserActiveNotFound() {
-        assertThrows(IllegalArgumentException.class, () -> new Searches().updateUserActive("999"));
+        Searches searches = new Searches();
+        assertThrows(IllegalArgumentException.class, () -> searches.updateUserActive("999"));
     }
 
     void testFindUserIdByAnyProperFraction() {
