@@ -12,6 +12,13 @@ import java.util.List;
 @RequestMapping("/users")
 public class UsersResource {
 
+    private final es.upm.miw.devops.code.UserService userService;
+
+    @org.springframework.beans.factory.annotation.Autowired
+    public UsersResource(es.upm.miw.devops.code.UserService userService) {
+        this.userService = userService;
+    }
+
     @GetMapping
     public List<User> readAll() {
         return new UsersDatabase().findAll().toList();
@@ -19,22 +26,10 @@ public class UsersResource {
 
     @org.springframework.web.bind.annotation.PutMapping("/{id}")
     public User update(@org.springframework.web.bind.annotation.PathVariable String id, @org.springframework.web.bind.annotation.RequestBody User user) {
-        return new UsersDatabase().findAll()
-                .filter(u -> u.getId().equals(id))
-                .findFirst()
-                .map(u -> {
-                    u.setName(user.getName());
-                    u.setFamilyName(user.getFamilyName());
-                    u.setEmail(user.getEmail());
-                    u.setIdentity(user.getIdentity());
-                    u.setAddress(user.getAddress());
-                    u.setCity(user.getCity());
-                    u.setProvince(user.getProvince());
-                    u.setPostalCode(user.getPostalCode());
-                    u.setActive(user.isActive());
-                    u.setFractions(user.getFractions());
-                    return u;
-                })
-                .orElseThrow(() -> new org.springframework.web.server.ResponseStatusException(org.springframework.http.HttpStatus.NOT_FOUND, "User not found"));
+        try {
+            return this.userService.update(id, user);
+        } catch (IllegalArgumentException e) {
+            throw new org.springframework.web.server.ResponseStatusException(org.springframework.http.HttpStatus.NOT_FOUND, "User not found");
+        }
     }
 }
