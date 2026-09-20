@@ -47,6 +47,7 @@ public class UsersDatabase {
         user1.setCity("Madrid");
         user1.setProvince("Madrid");
         user1.setPostalCode("28001");
+        user1.setRole("ADMIN");
 
         User user2 = new User("2", "Ana", "Blanco", fractions2);
         user2.setEmail("ana@example.com");

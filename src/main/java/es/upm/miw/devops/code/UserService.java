@@ -12,7 +12,13 @@ public class UserService {
             new UsersDatabase().findAll()
                     .filter(u -> u.getId().equals(userUpdate.getId()))
                     .findFirst()
-                    .ifPresent(u -> u.setActive(userUpdate.isActive()))
+                    .ifPresent(u -> {
+                        if ("ADMIN".equals(u.getRole()) && !userUpdate.isActive()) {
+                            // Do not deactivate ADMIN users
+                            return;
+                        }
+                        u.setActive(userUpdate.isActive());
+                    })
         );
     }
 }
