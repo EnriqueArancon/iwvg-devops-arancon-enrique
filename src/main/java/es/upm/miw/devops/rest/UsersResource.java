@@ -12,6 +12,13 @@ import java.util.List;
 @RequestMapping("/users")
 public class UsersResource {
 
+    private final es.upm.miw.devops.code.UserService userService;
+
+    @org.springframework.beans.factory.annotation.Autowired
+    public UsersResource(es.upm.miw.devops.code.UserService userService) {
+        this.userService = userService;
+    }
+
     @GetMapping
     public List<User> readAll() {
         return new UsersDatabase().findAll().toList();
@@ -19,11 +26,6 @@ public class UsersResource {
 
     @org.springframework.web.bind.annotation.PatchMapping
     public void updateActives(@org.springframework.web.bind.annotation.RequestBody List<User> users) {
-        users.forEach(userUpdate -> 
-            new UsersDatabase().findAll()
-                    .filter(u -> u.getId().equals(userUpdate.getId()))
-                    .findFirst()
-                    .ifPresent(u -> u.setActive(userUpdate.isActive()))
-        );
+        this.userService.updateActives(users);
     }
 }

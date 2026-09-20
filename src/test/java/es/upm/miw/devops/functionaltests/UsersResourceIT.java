@@ -27,4 +27,20 @@ public class UsersResourceIT {
                 .expectBodyList(User.class)
                 .value(users -> assertTrue(users.size() >= 6));
     }
+
+    @Test
+    void testUpdateActives() {
+        User userUpdate1 = new User("1", null, null, null);
+        userUpdate1.setActive(false);
+
+        User userUpdate2 = new User("2", null, null, null);
+        userUpdate2.setActive(false);
+
+        this.webTestClient
+                .patch()
+                .uri("/users")
+                .bodyValue(java.util.List.of(userUpdate1, userUpdate2))
+                .exchange()
+                .expectStatus().isOk();
+    }
 }
