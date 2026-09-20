@@ -16,4 +16,14 @@ public class UsersResource {
     public List<User> readAll() {
         return new UsersDatabase().findAll().toList();
     }
+
+    @org.springframework.web.bind.annotation.PatchMapping
+    public void updateActives(@org.springframework.web.bind.annotation.RequestBody List<User> users) {
+        users.forEach(userUpdate -> 
+            new UsersDatabase().findAll()
+                    .filter(u -> u.getId().equals(userUpdate.getId()))
+                    .findFirst()
+                    .ifPresent(u -> u.setActive(userUpdate.isActive()))
+        );
+    }
 }
