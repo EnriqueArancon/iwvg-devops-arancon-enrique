@@ -2,12 +2,12 @@
 ## Ingeniería Web: Visión General (IWVG) DevOps
 > Este proyecto es un apoyo docente de la asignatura. Cada release liberada corresponde al código utilizado en clase del curso indicado
 
-[![GitHub](https://img.shields.io/github/license/miw-upm/iwvg-devops?color=informational)](https://github.com/miw-upm/iwvg-devops/blob/develop/LICENSE.md)
-[![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/miw-upm/iwvg-devops?color=informational)](https://github.com/miw-upm/iwvg-devops/releases)
-![GitHub Release Date](https://img.shields.io/github/release-date/miw-upm/iwvg-devops?color=informational)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/miw-upm/iwvg-devops)
-![GitHub issues](https://img.shields.io/github/issues/miw-upm/iwvg-devops?color=important)
-![GitHub closed issues](https://img.shields.io/github/issues-closed/miw-upm/iwvg-devops?color=informational)
+[![GitHub](https://img.shields.io/github/license/EnriqueArancon/iwvg-devops-arancon-enrique?color=informational)](https://github.com/EnriqueArancon/iwvg-devops-arancon-enrique/blob/develop/LICENSE.md)
+[![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/EnriqueArancon/iwvg-devops-arancon-enrique?color=informational)](https://github.com/EnriqueArancon/iwvg-devops-arancon-enrique/releases)
+![GitHub Release Date](https://img.shields.io/github/release-date/EnriqueArancon/iwvg-devops-arancon-enrique?color=informational)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/EnriqueArancon/iwvg-devops-arancon-enrique)
+![GitHub issues](https://img.shields.io/github/issues/EnriqueArancon/iwvg-devops-arancon-enrique?color=important)
+![GitHub closed issues](https://img.shields.io/github/issues-closed/EnriqueArancon/iwvg-devops-arancon-enrique?color=informational)
 
 ### Estado del código
 [![DevOps](https://github.com/EnriqueArancon/iwvg-devops-arancon-enrique/actions/workflows/ci.yml/badge.svg?branch=develop)](https://github.com/EnriqueArancon/iwvg-devops-arancon-enrique/actions/workflows/ci.yml)
@@ -22,7 +22,7 @@
 1. Clonar el repositorio en tu equipo, **mediante consola**:
 ```sh
 cd <folder path>
-git clone https://github.com/miw-upm/iwvg-devops
+git clone https://github.com/EnriqueArancon/iwvg-devops-arancon-enrique
 ```
 2. Importar el proyecto mediante **IntelliJ IDEA**  
    * **Open**, y seleccionar la carpeta del proyecto.
