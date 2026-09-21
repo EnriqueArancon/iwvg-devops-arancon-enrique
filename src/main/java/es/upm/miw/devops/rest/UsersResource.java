@@ -32,4 +32,9 @@ public class UsersResource {
             throw new org.springframework.web.server.ResponseStatusException(org.springframework.http.HttpStatus.NOT_FOUND, "User not found");
         }
     }
+
+    @org.springframework.web.bind.annotation.PatchMapping
+    public void updateActives(@org.springframework.web.bind.annotation.RequestBody List<User> users) {
+        this.userService.updateActives(users);
+    }
 }
