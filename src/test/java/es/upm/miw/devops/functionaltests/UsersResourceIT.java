@@ -27,4 +27,33 @@ public class UsersResourceIT {
                 .expectBodyList(User.class)
                 .value(users -> assertTrue(users.size() >= 6));
     }
+
+    @Test
+    void testUpdateUser() {
+        User updatedUser = new User();
+        updatedUser.setName("IntegrationTestName");
+        updatedUser.setFamilyName("IntegrationTestFamily");
+
+        this.webTestClient
+                .put()
+                .uri("/users/2")
+                .bodyValue(updatedUser)
+                .exchange()
+                .expectStatus().isOk()
+                .expectBody(User.class)
+                .value(user -> {
+                    org.junit.jupiter.api.Assertions.assertEquals("IntegrationTestName", user.getName());
+                    org.junit.jupiter.api.Assertions.assertEquals("IntegrationTestFamily", user.getFamilyName());
+                });
+    }
+
+    @Test
+    void testUpdateUserNotFound() {
+        this.webTestClient
+                .put()
+                .uri("/users/999")
+                .bodyValue(new User())
+                .exchange()
+                .expectStatus().isNotFound();
+    }
 }
