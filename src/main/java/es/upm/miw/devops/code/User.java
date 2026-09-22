@@ -14,6 +14,7 @@ public class User {
     private String province;
     private String postalCode;
     private boolean active = true;
+    private String role;
     private List<Fraction> fractions;
 
     public User() {
@@ -73,6 +74,8 @@ public class User {
     public void setPostalCode(String postalCode) { this.postalCode = postalCode; }
     public boolean isActive() { return active; }
     public void setActive(boolean active) { this.active = active; }
+    public String getRole() { return role; }
+    public void setRole(String role) { this.role = role; }
 
     public boolean isBillable() {
         return name != null && !name.isBlank() &&
