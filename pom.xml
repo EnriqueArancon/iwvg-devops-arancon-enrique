@@ -14,7 +14,7 @@
 
     <groupId>es.upm.miw</groupId>
     <artifactId>iwvg-devops-arancon-enrique</artifactId>
-    <version>6.6.69</version>
+    <version>6.7.70</version>
     <packaging>jar</packaging>
     <name>${project.groupId}.${project.artifactId}</name>
     <url>https://github.com/EnriqueArancon/${project.artifactId}</url>
