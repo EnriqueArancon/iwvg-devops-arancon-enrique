@@ -11,7 +11,7 @@
 
 ### Estado del código
 [![DevOps](https://github.com/EnriqueArancon/iwvg-devops-arancon-enrique/actions/workflows/ci.yml/badge.svg?branch=develop)](https://github.com/EnriqueArancon/iwvg-devops-arancon-enrique/actions/workflows/ci.yml)
-[![AWS Deploy](https://github.com/EnriqueArancon/iwvg-devops-arancon-enrique/actions/workflows/cd-master.yml/badge.svg)](https://github.com/EnriqueArancon/iwvg-devops-arancon-enrique/actions/workflows/cd-master.yml)
+[![AWS Deploy](https://github.com/EnriqueArancon/iwvg-devops-arancon-enrique/actions/workflows/cd-master.yml/badge.svg)](http://35.42.155.125:8080)
 [![Render Status](https://iwvg-devops-arancon-enrique.onrender.com/version-badge)](https://iwvg-devops-arancon-enrique.onrender.com/swagger-ui.html)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=EnriqueArancon_iwvg-devops-arancon-enrique&metric=alert_status)](https://sonarcloud.io/project/overview?id=EnriqueArancon_iwvg-devops-arancon-enrique)
 
